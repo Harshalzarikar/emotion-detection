@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .emoji {
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emotion Detection Result</h1>
+    <p>Detected Emotion: <span id="detectedEmotion"></span></p>
+
+    <!-- Emoji element for detected emotion -->
+    <span class="emoji" id="emoji"></span>
+
+    <a href="/">Back to Upload</a>
+
+    <script>
+        // JavaScript function to set the detected emotion and corresponding emoji
+        function setDetectedEmotionAndEmoji(emotion) {
+            const detectedEmotionElement = document.getElementById('detectedEmotion');
+            const emojiElement = document.getElementById('emoji');
+
+            detectedEmotionElement.textContent = emotion;
+
+            // Map detected emotions to corresponding emojis
+            const emojiMap = {
+                'Angry': '😡',
+                'Disgust': '😖',
+                'Fear': '😨',
+                'Happy': '😄',
+                'Sad': '😢',
+                'Surprise': '😲',
+                'Neutral': '😐'
+            };
+
+            // Set the emoji based on the detected emotion
+            emojiElement.textContent = emojiMap[emotion];
+        }
+
+        // Call the function to set the detected emotion and emoji
+        setDetectedEmotionAndEmoji('{{ emotion }}');
+    </script>
+</body>
+</html>
